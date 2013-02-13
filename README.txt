@@ -1,0 +1,1 @@
+This is a simple Google Chrome extension.This will allow you to enter and sort data on the go.All you have to do is set up the form inputs from the right click menu and inset your data.You can also export your data to Excel.

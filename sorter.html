@@ -1,0 +1,136 @@
+<html>
+<head>
+	<title>Live Sorter</title>
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/jquery.jeditable.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/jquery.contextMenu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/script.js" type="text/javascript" charset="utf-8"></script>
+	<link rel='SHORTCUT ICON' href='/favicon.ico'>
+	<style>
+		html {
+			background-color: #ebebeb;
+		}
+		body {
+			margin: 0 auto;
+			width: 80%;
+			padding: 10px;
+			background-color: #fcfcfc;
+		}
+		table.tb_border {
+		border:1px solid black;
+		}
+		table.tb_border td {
+		border-bottom: 1px solid black;
+		border-right: 1px solid black;
+		padding: 3px;
+		}
+		table.tb_border th {
+		background-color: #aaa;
+		border-bottom: 1px solid black;
+		border-right: 1px solid black;
+		padding: 3px;
+		}
+		.contextMenu {
+			position: absolute;
+			width: 120px;
+			z-index: 99999;
+			border: solid 1px #CCC;
+			background: #EEE;
+			padding: 0px;
+			margin: 0px;
+			display: none;
+		}
+
+		.contextMenu LI {
+			list-style: none;
+			padding: 0px;
+			margin: 0px;
+		}
+
+		.contextMenu A {
+			color: #333;
+			text-decoration: none;
+			display: block;
+			line-height: 20px;
+			height: 20px;
+			background-position: 6px center;
+			background-repeat: no-repeat;
+			outline: none;
+			padding: 1px 5px;
+			padding-left: 28px;
+		}
+
+		.contextMenu LI.hover A {
+			color: #FFF;
+			background-color: #3399FF;
+		}
+
+		.contextMenu LI.disabled A {
+			color: #AAA;
+			cursor: default;
+		}
+
+		.contextMenu LI.hover.disabled A {
+			background-color: transparent;
+		}
+
+		.contextMenu LI.separator {
+			border-top: solid 1px #CCC;
+		}		
+	</style>
+</head>
+
+<body>
+		<center> 
+	
+	<h3 class='dblclick'> LIVE SORTER </h3>
+	<div class='hide'>
+	<form id="myForm">
+	
+		<table>
+
+
+		<tr id='input'>
+
+
+		<!-- The sorted table is made based on the `name` and `value` attribute -->
+		
+		<td> <input type='text' class='ipt' name='Name' placeholder='Name'> </td>
+
+		<td> <input type='text' class='ipt' name='Points' placeholder='Points'> </td>
+
+		<!-- So if you want to insert more data to be sorted all you have to do is add in input here 
+			based on the examples above. Have fun and i hope it helps ! -->
+
+
+		</tr>
+
+		<tr><td id ='rad'></td>
+			<td>
+			<input type='radio' class='updt' name='ord' id='ord1' value ='' checked='1'><label for='ord1'>ASC</label><br/>
+			<input type='radio' class='updt' name='ord' id='ord2' value ='-'><label for='ord2'>DESC</label><br/>
+			<input type='checkbox' class='updt' name='count' id='ct' value ='1'><label for='ct'>Count</label>
+			</td>
+			<td><input type='submit' value='Add'></td>
+		</tr>
+		</table>
+	</form>
+	</div>
+	<div id='content'>The sorted data will be displayed here !</div>
+	
+	<!-- here we save the data so in case you click Ctrl + S you can still edit the data leater -->
+	<input type='hidden' id='save'>
+	
+</center>
+<div class='hide'>
+
+	<ul id='myMenu' class="contextMenu">
+		<li><a href='#add'> Add </a></li>
+		<li><a href='#edit'> Edit </a></li>
+		<li><a href='#delete'> Delete </a></li>
+	</ul>
+	<br/><br/><small>Note: All the records must have a value on the position that you wish to sort by or else it will fail.<br/>You can also click use Ctrl + S to save the page to view it leater. <br/>This is a small tool that will allow you to sort data as you enter it. This is just an example that can of cource be addapted to your needs. Enjoy <br/><br/>
+<center><a href='?'>Reset</a> | <a href='#' id='exportToExcel'>Export to excel</a> | <a href="#" id='print'>Print sorted table</a> | <i><a href='http://master-land.net'>&copy;Mihai Ionut Vilcu(ionutvmi@gmail.com) 2013 </a></i></center>	</small>
+</div>
+</body>
+</html>
